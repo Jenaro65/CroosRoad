@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante - Hotel Restaurante El Cruce Chauchina</title>
+    <style>
+        /* Estilos generales y colores corporativos (ajustables) */
+        :root {
+            --color-principal: #d82b2b; /* Rojo usado en la web original */
+            --color-fondo: #f9f9f9;
+            --color-texto: #333;
+            --color-gris: #555;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+        
+        /* Navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-principal);
+            text-decoration: none;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--color-principal);
+        }
+
+        /* Hero Section (Cabecera visual) */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Secciones */
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--color-texto);
+            text-transform: uppercase;
+        }
+        h3 {
+            color: var(--color-principal);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Grid de TOP Gastronómicos */
+        .top-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .top-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid var(--color-principal);
+        }
+
+        /* Sección de Qué quieres comer / Cartas */
+        .cartas-section {
+            text-align: center;
+            padding: 3rem 5%;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .cartas-section p {
+            font-size: 1.1rem;
+            color: var(--color-gris);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .botones-cartas {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .btn-carta {
+            background-color: #333;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+        .btn-carta:hover {
+            background-color: var(--color-principal);
+        }
+
+        /* Nuevos platos y novedades */
+        .novedades {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+        }
+        .novedades p {
+            color: var(--color-gris);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Footer y datos legales */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+        .footer-contacto {
+            margin-bottom: 2rem;
+        }
+        .footer-contacto p {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+        footer .legal-info {
+            font-size: 0.85rem;
+            color: #aaa;
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+        footer .legal-info strong {
+            color: #fff;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">EL CRUCE</a>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#restaurante">Restaurante</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Restaurante</h1>
+    </div>
+
+    <section id="restaurante">
+        <h2>TOP Gastronómicos</h2>
+        
+        <div class="top-grid">
+            <div class="top-item">
+                <h3>Bacalao</h3>
+                <p>De bacalao de toda la vida, historia del Cruce y su sabor para hacer boca.</p>
+            </div>
+            <div class="top-item">
+                <h3>Carne a la brasa</h3>
+                <p>Fuego y brasas hacen que la carne esté más suculenta, y aquí la hacemos al completo y con gusto.</p>
+            </div>
+            <div class="top-item">
+                <h3>Cerveza fría</h3>
+                <p>Cerveza muy muy fría, al estilo bar de tapas, además aquí sabemos servirla.</p>
+            </div>
+        </div>
+
+        <div class="cartas-section">
+            <h3>¿Qué quieres comer?</h3>
+            <p>Tenemos una atención personalizada y completa en cocina, dinos qué te apetece, nosotros le daremos el toque.</p>
+            <div class="botones-cartas">
+                <a href="#" class="btn-carta">Carta Cafetería/Bar</a>
+                <a href="#" class="btn-carta">Carta Restaurante »</a>
+                <a href="#" class="btn-carta">Platos combinados »</a>
+            </div>
+        </div>
+
+        <div class="novedades">
+            <h3>Nuevos platos & Novedades</h3>
+            <p>Nuestra cocina ha evolucionado junto con la historia de El Cruce. Desde nuestra abuela con su toque de cariño en el bacalao, a las nuevas generaciones con la brasa y el Grill. Hemos ido creando una nueva seña de identidad en la cocina. Todo lo vivido hace que sepamos la importancia de la innovación, adaptándonos y creciendo desde una pequeña cocina casera de un restaurante de carretera. Así, hemos dado el toque americano de las hamburguesas y el fuego que se pega en la carne a la brasa, dándole un sabor especial. Y todo ello unido a las nuevas formas de comunicación, así que te pedimos que nos sigas. Y es que es la mejor forma de estar atento a las novedades y los futuros cambios.</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-contacto">
+            <h3>Contacto</h3>
+            <p>Autovía A-92, salida 227</p>
+            <p>18330 Chauchina, Granada</p>
+            <p>Teléfonos: +34 958 44 67 99 | +34 699 67 88 75</p>
+            <p>Email: info@elcrucechauchina.com</p>
+        </div>
+        <div class="legal-info">
+            <p>Operado por: <strong>CROSSROADS INN & RESTAURANT LTD</strong><br>
+            Company Number: 15762008<br>
+            167 - 169 Great Portland St, Fifth Floor, London, United Kingdom W1W 5PF</p>
+            <p style="margin-top: 15px;">&copy; 2026 El Cruce Chauchina. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
